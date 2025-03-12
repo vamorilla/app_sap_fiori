@@ -1,0 +1,31 @@
+<mvc:View controllerName="modulo.proyectoprueba.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout">
+    
+    <Page id="page" title="{i18n>title}" >
+        <Text id="txtId01" text="{i18n>subtitle}" />
+        <Panel id="pnId01" width="100%">
+            <FlexBox id='flboxId01' direction="Column" alignItems="Start">
+                <Button
+                    id="btnId01"
+			        text="Click y te saludo"
+			        class="sapUiSmallMarginBottom"
+			        press=".onAlertMessageBoxPress"
+			        width="220px" 
+                />
+
+                	<Label id="lblId01" text="Ingresá tu nombre" labelFor="input-name" />
+		            <Input id="input-name" liveChange=".onInputChange" />
+                    <Button
+                        id="btnId02"
+			            text="Ingresar"
+			            class="sapUiSmallMarginBottom"
+			            press=".onShowGreeting"
+			            width="170px" 
+                        enabled="{viewModel>/isButtonEnabled}"
+                    />
+            </FlexBox>
+        </Panel>
+    </Page>
+</mvc:View>
