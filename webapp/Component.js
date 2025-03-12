@@ -19,11 +19,12 @@ sap.ui.define([
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
 
+            // Set the JSON model globally in the app
+            this.setModel(models.createViewModel(), "viewModel");
+
             // enable routing
             this.getRouter().initialize();
 
-            // Set the JSON model globally in the app
-            this.setModel(models.createViewModel(), "viewModel");
         }
     });
 });
