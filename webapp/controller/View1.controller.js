@@ -10,22 +10,22 @@ sap.ui.define([
         },
 
         onAlertMessageBoxPress: function () {
-            var sMessage = this._oResourceBundle.getText("helloWorld");
+            let sMessage = this._oResourceBundle.getText("helloWorld");
 			MessageBox.alert(sMessage);
 		},
 
         onInputChange: function (oEvent) {
-            var sValue = oEvent.getParameter("value").trim();
-            var oViewModel = this.getView().getModel("viewModel");
+            let sValue = oEvent.getParameter("value").trim();
+            let oViewModel = this.getView().getModel("viewModel");
 
             oViewModel.setProperty("/isButtonEnabled", sValue.length > 0);
         },
 
         onShowGreeting: function () {
-            var oInput = this.getView().byId("input-name");
-            var userName = oInput.getValue().trim();
+            let oInput = this.getView().byId("input-name");
+            let userName = oInput.getValue().trim();
 
-            var sMessage = this._oResourceBundle.getText("helloUser", [userName, "mi primer app"]);
+            let sMessage = this._oResourceBundle.getText("helloUser", [userName, "mi primer app"]);
             MessageBox.success(sMessage);
         }
     });
