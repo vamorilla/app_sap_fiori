@@ -3,28 +3,31 @@
     xmlns="sap.m" 
     xmlns:l="sap.ui.layout">
     
-    <Page id="page" title="{i18n>title}" >
-        <Text id="txtId01" text="{i18n>subtitle}" />
+    <Page id="page">
+        <ObjectHeader id="objHdrId01" title="{i18n>title}" backgroundDesign="Solid">
+            <attributes>
+				<ObjectAttribute id="objAttrId01" title="Estado" text="{i18n>subtitle}" />
+			</attributes>
+        </ObjectHeader>
         <Panel id="pnId01" width="100%">
-            <FlexBox id='flboxId01' direction="Column" alignItems="Start">
+            <FlexBox id='flboxId01' direction="Column" alignItems="Center">
                 <Button
                     id="btnId01"
-			        text="Click y te saludo"
-			        class="sapUiSmallMarginBottom"
+			        text="Click y saludo"
+			        class="sapUiLargeMarginBottom"
 			        press=".onAlertMessageBoxPress"
 			        width="220px" 
                 />
-
-                	<Label id="lblId01" text="Ingresá tu nombre" labelFor="input-name" />
-		            <Input id="input-name" liveChange=".onInputChange" />
-                    <Button
-                        id="btnId02"
-			            text="Ingresar"
-			            class="sapUiSmallMarginBottom"
-			            press=".onShowGreeting"
-			            width="170px" 
-                        enabled="{viewModel>/isButtonEnabled}"
-                    />
+                <Label id="lblId01" text="Ingresá tu nombre" labelFor="input-name" />
+		        <Input id="input-name" liveChange=".onInputChange" placeholder="Escribir..." />
+                <Button
+                    id="btnId02"
+			        text="Ingresar"
+			        class="sapUiLargeMarginBottom"
+			        press=".onShowGreeting"
+			        width="170px" 
+                    enabled="{viewModel>/isButtonEnabled}"
+                />
             </FlexBox>
         </Panel>
     </Page>
