@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "modulo/proyectoprueba/model/models"
-], (UIComponent, models) => {
+    "modulo/proyectoprueba/model/models",
+    "modulo/proyectoprueba/utils/View1Helper"
+], (UIComponent, models, View1Helper) => {
     "use strict";
 
     return UIComponent.extend("modulo.proyectoprueba.Component", {
@@ -24,7 +25,12 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            
+            this.setInitModel(); 
+        },
 
-        }
+        setInitModel: function () {
+            View1Helper.init(this.getModel());
+        }  
     });
 });

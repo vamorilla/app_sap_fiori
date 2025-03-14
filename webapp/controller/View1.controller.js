@@ -1,12 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
-], (Controller, MessageBox) => {
+    "modulo/proyectoprueba/utils/View1Helper"
+], (Controller, MessageBox, View1Helper) => {
     "use strict";
 
     return Controller.extend("modulo.proyectoprueba.controller.View1", {
         onInit: function () {
             this._oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+             // Initialize the helper with the OData model
+             var oModel = this.getOwnerComponent().getModel(); // Get the Northwind OData model
+             View1Helper.init(oModel);
         },
 
         onAlertMessageBoxPress: function () {
@@ -27,6 +31,16 @@ sap.ui.define([
 
             let sMessage = this._oResourceBundle.getText("helloUser", [userName, "mi primer app"]);
             MessageBox.success(sMessage);
+        },
+
+        onFetchProducts: function () {
+            View1Helper.getDataProducts()
+                .then(function (aProducts) {
+                    console.log("Products data:", aProducts);
+                })
+                .catch(function (error) {
+                    console.error("Error fetching products:", error);
+                });
         }
     });
 });

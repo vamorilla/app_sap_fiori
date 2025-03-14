@@ -28,6 +28,10 @@
 			        width="170px" 
                     enabled="{viewModel>/isButtonEnabled}"
                 />
+                <Button id="btnId03"
+                    text="Obtener productos"
+                    press=".onFetchProducts"
+                />
             </FlexBox>
         </Panel>
     </Page>
