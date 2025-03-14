@@ -20,6 +20,10 @@ function (JSONModel, Device) {
             return new JSONModel({
                 isButtonEnabled: false 
             });
+        },
+
+        createProductsModel: function () {
+            return new JSONModel([]); 
         }
     };
 

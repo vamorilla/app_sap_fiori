@@ -34,12 +34,19 @@ sap.ui.define([
         },
 
         onFetchProducts: function () {
+            let oView = this.getView();
+            let oProductsModel = this.getOwnerComponent().getModel("productsModel"); 
+
             View1Helper.getDataProducts()
-                .then(function (aProducts) {
-                    console.log("Products data:", aProducts);
+                .then(function (aResponse) {
+                    console.log("Productos obtenidos:", aResponse);
+
+                    let aProducts = aResponse[0].results || []; 
+                    //Update the global products model
+                    oProductsModel.setData({ products: aProducts });
                 })
                 .catch(function (error) {
-                    console.error("Error fetching products:", error);
+                    console.error("Error al obtener productos:", error);
                 });
         }
     });

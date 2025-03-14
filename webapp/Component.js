@@ -22,6 +22,7 @@ sap.ui.define([
 
             // Set the JSON model globally in the app
             this.setModel(models.createViewModel(), "viewModel");
+            this.setModel(models.createProductsModel(), "productsModel");
 
             // enable routing
             this.getRouter().initialize();
