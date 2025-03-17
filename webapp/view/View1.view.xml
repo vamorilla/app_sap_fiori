@@ -19,8 +19,8 @@
 			        press=".onAlertMessageBoxPress"
 			        width="220px" 
                 />
-                <Label id="lblId01" text="Ingresá tu nombre" labelFor="input-name" />
-		        <Input id="input-name" liveChange=".onInputChange" placeholder="Escribir..." />
+                <Label id="lblId01" text="{i18n>labelPersonalGreeting}" labelFor="input-name" />
+		        <Input id="input-name" liveChange=".onInputChange" placeholder="{i18n>placeholderPersonalGreeting}" />
                 <Button
                     id="btnId02"
 			        text="{i18n>buttonPersonalGreeting}"
@@ -33,6 +33,10 @@
                     text="{i18n>buttonGetProducts}"
                     press=".onFetchProducts"
                 />
+                <FlexBox id="idSearchContainer" direction="Row" alignItems="Center">
+                    <Input id="idSearchInput" placeholder="{i18n>placeholderSearchProduct}" liveChange=".onFetchProducts" width="80%" />
+                    <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" />
+                </FlexBox>
                 <c:Fragment
                     fragmentName='modulo.proyectoprueba.view.fragments.ProductsTable'
                     type="XML"

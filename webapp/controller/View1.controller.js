@@ -34,9 +34,12 @@ sap.ui.define([
         },
 
         onFetchProducts: function () {
+            let oView = this.getView();
             let oProductsModel = this.getOwnerComponent().getModel("productsModel"); 
+            
+            let sSearchQuery = oView.byId("idSearchInput").getValue().trim();
 
-            View1Helper.getDataProducts()
+            View1Helper.getDataProducts(sSearchQuery)
                 .then(function (aResponse) {
                     console.log("Productos obtenidos:", aResponse);
                     //Use prefix 'a' from Array for convention
