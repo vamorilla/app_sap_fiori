@@ -22,6 +22,7 @@ sap.ui.define([
 
             // Set the JSON model globally in the app
             this.setModel(models.createViewModel(), "viewModel");
+            //It could initialized in the Helper
             this.setModel(models.createProductsModel(), "productsModel");
 
             // enable routing

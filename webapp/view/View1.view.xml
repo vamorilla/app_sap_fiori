@@ -1,5 +1,6 @@
 <mvc:View controllerName="modulo.proyectoprueba.controller.View1"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:c="sap.ui.core"
     xmlns="sap.m" 
     xmlns:l="sap.ui.layout">
     
@@ -13,7 +14,7 @@
             <FlexBox id='flboxId01' direction="Column" alignItems="Center">
                 <Button
                     id="btnId01"
-			        text="Click y saludo"
+			        text="{i18n>buttonGreeting}"
 			        class="sapUiLargeMarginBottom"
 			        press=".onAlertMessageBoxPress"
 			        width="220px" 
@@ -22,48 +23,20 @@
 		        <Input id="input-name" liveChange=".onInputChange" placeholder="Escribir..." />
                 <Button
                     id="btnId02"
-			        text="Ingresar"
+			        text="{i18n>buttonPersonalGreeting}"
 			        class="sapUiLargeMarginBottom"
 			        press=".onShowGreeting"
 			        width="170px" 
                     enabled="{viewModel>/isButtonEnabled}"
                 />
                 <Button id="btnId03"
-                    text="Obtener productos"
+                    text="{i18n>buttonGetProducts}"
                     press=".onFetchProducts"
                 />
-
-                <Table id="idProductsTable" items="{productsModel>/products}" width="100%">
-                    <headerToolbar>
-                        <Toolbar id="toolBar">
-                            <Title id="title" text="Lista de Productos" />
-                        </Toolbar>
-                    </headerToolbar>
-                    <columns>
-                        <Column id="column01">
-                            <Text id="text01" text="ID de Categoria" />
-                        </Column>
-                        <Column id="column02">
-                            <Text id="text02" text="Nombre del Producto" />
-                        </Column>
-                        <Column id="column03">
-                            <Text id="text03" text="Precio" />
-                        </Column>
-                        <Column id="column04">
-                            <Text id="text04" text="Stock" />
-                        </Column>
-                    </columns>
-                    <items>
-                        <ColumnListItem id="listItem">
-                            <cells>
-                                <Text id="detail01" text="{productsModel>CategoryID}" />
-                                <Text id="detail02" text="{productsModel>ProductName}" />
-                                <Text id="detail03" text="{productsModel>UnitPrice}" />
-                                <Text id="detail04" text="{productsModel>UnitsInStock}" />
-                            </cells>
-                        </ColumnListItem>
-                    </items>
-                </Table>
+                <c:Fragment
+                    fragmentName='modulo.proyectoprueba.view.fragments.ProductsTable'
+                    type="XML"
+                />    
             </FlexBox>
         </Panel>
     </Page>

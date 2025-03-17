@@ -34,13 +34,12 @@ sap.ui.define([
         },
 
         onFetchProducts: function () {
-            let oView = this.getView();
             let oProductsModel = this.getOwnerComponent().getModel("productsModel"); 
 
             View1Helper.getDataProducts()
                 .then(function (aResponse) {
                     console.log("Productos obtenidos:", aResponse);
-
+                    //Use prefix 'a' from Array for convention
                     let aProducts = aResponse[0].results || []; 
                     //Update the global products model
                     oProductsModel.setData({ products: aProducts });

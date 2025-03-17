@@ -1,0 +1,36 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+>
+    <Table id="idProductsTable" items="{productsModel>/products}" width="100%" class="sapUiLargeMarginBottom">
+                    <headerToolbar>
+                        <Toolbar id="toolBar">
+                            <Title id="title" text="Lista de Productos" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column id="column01">
+                            <Text id="text01" text="{i18n>idCategory}" />
+                        </Column>
+                        <Column id="column02">
+                            <Text id="text02" text="{i18n>productName}" />
+                        </Column>
+                        <Column id="column03">
+                            <Text id="text03" text="{i18n>price}" />
+                        </Column>
+                        <Column id="column04">
+                            <Text id="text04" text="{i18n>stock}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="listItem">
+                            <cells>
+                                <Text id="detail01" text="{productsModel>CategoryID}" />
+                                <Text id="detail02" text="{productsModel>ProductName}" />
+                                <Text id="detail03" text="{productsModel>UnitPrice}" />
+                                <Text id="detail04" text="{productsModel>UnitsInStock}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+</c:FragmentDefinition>
