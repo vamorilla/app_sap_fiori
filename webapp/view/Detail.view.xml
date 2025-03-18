@@ -1,0 +1,10 @@
+<mvc:View controllerName="modulo.proyectoprueba.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    
+    <Page id="pageId" title="{i18n>titleDetailPage}">
+        <content>
+            <Text id="productDetails" text="Loading product details..." />
+        </content>
+    </Page>
+</mvc:View>

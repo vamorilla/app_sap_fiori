@@ -23,7 +23,7 @@
                         </Column>
                     </columns>
                     <items>
-                        <ColumnListItem id="listItem">
+                        <ColumnListItem id="listItem" type="Active" press="onShowDetail">
                             <cells>
                                 <Text id="detail01" text="{productsModel>CategoryID}" />
                                 <Text id="detail02" text="{productsModel>ProductName}" />

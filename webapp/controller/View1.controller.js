@@ -11,6 +11,7 @@ sap.ui.define([
              // Initialize the helper with the OData model
              var oModel = this.getOwnerComponent().getModel(); // Get the Northwind OData model
              View1Helper.init(oModel);
+             this.oRouter = this.getOwnerComponent().getRouter();
         },
 
         onAlertMessageBoxPress: function () {
@@ -50,6 +51,18 @@ sap.ui.define([
                 .catch(function (error) {
                     console.error("Error al obtener productos:", error);
                 });
+        },
+
+        onShowDetail: function(oEvent){
+            //Gets the clicked item
+            let oItem = oEvent.getSource();
+            //Gets the prodect data
+            let oBindingContext = oItem.getBindingContext("productsModel");
+
+            let oProduct = oBindingContext.getObject();
+            this.oRouter.navTo("detail", {
+                ProductID: oProduct.ProductID
+            })
         }
     });
 });
