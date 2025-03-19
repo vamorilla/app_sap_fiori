@@ -1,10 +1,28 @@
 <mvc:View controllerName="modulo.proyectoprueba.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:smartTable="sap.ui.comp.smarttable">
     
     <Page id="pageId" title="{i18n>titleDetailPage}">
-        <content>
-            <Text id="productDetails" text="Loading product details..." />
-        </content>
+            <f:SimpleForm id="idProductDetails" layout="ResponsiveGridLayout">
+                <Label text="{i18n>productName}" />
+                <Text text="{productDetailModel>/ProductName}" />
+                
+                <Label text="{i18n>price}" />
+                <Text text="{productDetailModel>/UnitPrice}" />
+                
+                <Label text="{i18n>stock}" />
+                <Text text="{productDetailModel>/UnitsInStock}" />
+            </f:SimpleForm>
+             <smartTable:SmartTable id="orderDetailsSmartTable"
+                entitySet="Order_Details"
+                initiallyVisibleFields="OrderID,ProductID,UnitPrice,Quantity,Discount"
+                tableType="ResponsiveTable"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                enableAutoBinding="true"
+                header="{i18n>titleDetailsTable}">
+            </smartTable:SmartTable>
     </Page>
 </mvc:View>

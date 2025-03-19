@@ -24,6 +24,7 @@ sap.ui.define([
             this.setModel(models.createViewModel(), "viewModel");
             //It could initialized in the Helper
             this.setModel(models.createProductsModel(), "productsModel");
+            this.setModel(models.createProductDetailModel(), "productDetailModel");
 
             // enable routing
             this.getRouter().initialize();

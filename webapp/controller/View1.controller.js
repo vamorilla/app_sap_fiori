@@ -56,10 +56,11 @@ sap.ui.define([
         onShowDetail: function(oEvent){
             //Gets the clicked item
             let oItem = oEvent.getSource();
-            //Gets the prodect data
+            //Gets the product data
             let oBindingContext = oItem.getBindingContext("productsModel");
 
             let oProduct = oBindingContext.getObject();
+    
             this.oRouter.navTo("detail", {
                 ProductID: oProduct.ProductID
             })

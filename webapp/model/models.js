@@ -24,6 +24,10 @@ function (JSONModel, Device) {
 
         createProductsModel: function () {
             return new JSONModel([]); 
+        },
+
+        createProductDetailModel: function () {
+            return new JSONModel({});
         }
     };
 

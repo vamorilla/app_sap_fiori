@@ -11,12 +11,21 @@ sap.ui.define([
 
         _onProductMatched: function (oEvent) {
             let sProductID = oEvent.getParameter("arguments").ProductID;
-            this.getView().bindElement({
-                path: "/Products(" + sProductID + ")",
-                parameters: {
-                    expand: "Orders_Details"
+            
+            let oModel = this.getOwnerComponent().getModel();
+            let oProductDetailModel = this.getOwnerComponent().getModel("productDetailModel");
+            //I am using a separate JSON model and need to store data manually
+            oModel.read("/Products(" + sProductID + ")", {
+                urlParameters: {
+                    "$expand": "Order_Details" 
+                },
+                success: (oData) => {
+                    oProductDetailModel.setData(oData); 
+                },
+                error: (oError) => {
+                    console.error("Error:", oError);
                 }
-            })
+            });
         }
     });
 })
