@@ -8,12 +8,19 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("modulo.proyectoprueba.controller.View1", {
-        onInit: function () {
+        onInit: async function () {
             this._oResourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
              // Initialize the helper with the OData model
              var oModel = this.getOwnerComponent().getModel(); // Get the Northwind OData model
              View1Helper.init(oModel);
              this.oRouter = this.getOwnerComponent().getRouter();
+
+             try {
+                let oData = await View1Helper.getSuppliers();
+                oModel.setProperty("/Suppliers", oData.results); 
+            } catch (error) {
+                console.error("Error loading suppliers:", error);
+            }
         },
 
         onAlertMessageBoxPress: function () {
@@ -40,7 +47,7 @@ sap.ui.define([
             let aFilter = [];
             let categoriesModelValues= this.getOwnerComponent().getModel("CategoriesProductModel").getData();
             let oProductsModel = this.getOwnerComponent().getModel("productsModel"); 
-
+          
             if(categoriesModelValues.valueInputSearch){
                 aFilter.push(new Filter("ProductName", FilterOperator.Contains, categoriesModelValues.valueInputSearch))
             }
@@ -49,13 +56,22 @@ sap.ui.define([
                 aFilter.push(new Filter("CategoryID", FilterOperator.EQ, categoriesModelValues.selectedKey))
             }
 
+            if(categoriesModelValues.selectedSuppliers.length > 0){
+                let aSupplierFilters = categoriesModelValues.selectedSuppliers.map(sSupplierID => 
+                    new Filter("SupplierID", FilterOperator.EQ, sSupplierID)
+                );
+                aFilter.push(new Filter({
+                    filters: aSupplierFilters,
+                    and: false // This means OR condition
+                }));
+            }
+
             try {
                 let aDatos = await View1Helper.getDataProducts(aFilter);
-                console.log("Fetched products:", aDatos);
         
                 oProductsModel.setData({ products: aDatos[0].results || [] }); 
             } catch (error) {
-                console.error("Error fetching filtered products:", error);
+                console.error("Error:", error);
             }
         },
 

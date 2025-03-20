@@ -1,9 +1,7 @@
 sap.ui.define([
     "modulo/proyectoprueba/utils/View1Services",
-     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator",
     "sap/ui/model/json/JSONModel"
-], function (View1Services, Filter, FilterOperator, JSONModel) {
+], function (View1Services, JSONModel) {
     "use strict";
 
     return {
@@ -14,13 +12,13 @@ sap.ui.define([
         setInitCategoriesProductModel: function(oComponent){
             oComponent.setModel(new JSONModel({
                 valueInputSearch: '',
-                selectedKey: ''
+                selectedKey: '',
+                selectedSuppliers: []
             }), "CategoriesProductModel")
         },
 
 		getDataProducts: async function(aFilter) {
-            console.log('filtros',aFilter)
             return View1Services.getProducts(this._oNorthwindModel, aFilter);
-        }
+        },
     }    
 });

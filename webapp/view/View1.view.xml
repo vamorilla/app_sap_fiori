@@ -33,24 +33,43 @@
                     title="{i18n>tableTitle}"
                 />
                 <FlexBox id="idSearchContainer" direction="Row" alignItems="Center" width="100%" class="sapUiLargeMarginBottom">
-                    <HBox width="25%">
-                        <Input id="idSearchInput"
-                            placeholder="{i18n>placeholderSearchProduct}"
-                            value="{CategoriesProductModel>/valueInputSearch}">
-                            <layoutData>
-                                <FlexItemData growFactor="1" />
-                            </layoutData>
-                        </Input>
-                    </HBox>
-                    <ComboBox
-                        selectedKey="{CategoriesProductModel>/selectedKey}"
-                        selectionChange=".onSelectionChange"
-				        items="{
-					        path: '/Categories',
-					        sorter: { path: 'CategoryName' }
-				        }">
-				            <c:Item key="{CategoryID}" text="{CategoryName}" />
-			        </ComboBox>
+                    <l:VerticalLayout
+		            width="100%">
+                    <Label text="Nombre"/>
+                    <Input id="idSearchInput"
+                         placeholder="{i18n>placeholderSearchProduct}"
+                        value="{CategoriesProductModel>/valueInputSearch}">
+                        <layoutData>
+                            <FlexItemData growFactor="1" />
+                        </layoutData>
+                    </Input>
+                    </l:VerticalLayout>
+                    <l:VerticalLayout
+		                width="100%">
+                        <Label text="Categoría"/>
+                        <ComboBox
+                            selectedKey="{CategoriesProductModel>/selectedKey}"
+                            selectionChange=".onSelectionChange"
+				            items="{
+					            path: '/Categories',
+					            sorter: { path: 'CategoryName' }
+				            }">
+				                <c:Item key="{CategoryID}" text="{CategoryName}" />
+			            </ComboBox>
+                    </l:VerticalLayout>
+                    <l:VerticalLayout
+		                width="100%">
+                        <Label text="Proveedores"/>
+                        <MultiComboBox
+                            selectedKeys="{CategoriesProductModel>/selectedSuppliers}"
+			                maxWidth="650px"
+			                items="{
+				                path: '/Suppliers',
+				                sorter: { path: 'SupplierID' }
+			                }">
+			                <c:Item key="{SupplierID}" text="{SupplierID}" />
+		                </MultiComboBox>
+                    </l:VerticalLayout>
                     <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" width="auto" />
                 </FlexBox>
                 <c:Fragment
