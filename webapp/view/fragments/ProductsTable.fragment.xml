@@ -3,11 +3,6 @@
     xmlns:c="sap.ui.core"
 >
     <Table id="idProductsTable" items="{productsModel>/products}" width="100%" class="sapUiLargeMarginBottom">
-                    <headerToolbar>
-                        <Toolbar id="toolBar">
-                            <Title id="title" text="Lista de Productos" />
-                        </Toolbar>
-                    </headerToolbar>
                     <columns>
                         <Column id="column01">
                             <Text id="text01" text="{i18n>idCategory}" />

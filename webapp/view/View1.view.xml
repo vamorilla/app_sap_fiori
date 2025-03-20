@@ -29,13 +29,29 @@
 			        width="170px" 
                     enabled="{viewModel>/isButtonEnabled}"
                 />
-                <Button id="btnId03"
-                    text="{i18n>buttonGetProducts}"
-                    press=".onFetchProducts"
+                <ObjectHeader
+                    title="{i18n>tableTitle}"
                 />
-                <FlexBox id="idSearchContainer" direction="Row" alignItems="Center">
-                    <Input id="idSearchInput" placeholder="{i18n>placeholderSearchProduct}" liveChange=".onFetchProducts" width="80%" />
-                    <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" />
+                <FlexBox id="idSearchContainer" direction="Row" alignItems="Center" width="100%" class="sapUiLargeMarginBottom">
+                    <HBox width="25%">
+                        <Input id="idSearchInput"
+                            placeholder="{i18n>placeholderSearchProduct}"
+                            value="{CategoriesProductModel>/valueInputSearch}">
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </Input>
+                    </HBox>
+                    <ComboBox
+                        selectedKey="{CategoriesProductModel>/selectedKey}"
+                        selectionChange=".onSelectionChange"
+				        items="{
+					        path: '/Categories',
+					        sorter: { path: 'CategoryName' }
+				        }">
+				            <c:Item key="{CategoryID}" text="{CategoryName}" />
+			        </ComboBox>
+                    <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" width="auto" />
                 </FlexBox>
                 <c:Fragment
                     fragmentName='modulo.proyectoprueba.view.fragments.ProductsTable'

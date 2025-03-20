@@ -1,8 +1,9 @@
 sap.ui.define([
     "modulo/proyectoprueba/utils/View1Services",
      "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (View1Services, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/model/json/JSONModel"
+], function (View1Services, Filter, FilterOperator, JSONModel) {
     "use strict";
 
     return {
@@ -10,13 +11,16 @@ sap.ui.define([
 			this._oNorthwindModel = oNorthwindModel;
 		},
 
-		getDataProducts: async function(sSearchQuery) {
-            let oFilters = [];
-             // If search query is provided, add a filter for ProductName
-             if (sSearchQuery) {
-                oFilters.push(new Filter("ProductName", FilterOperator.Contains, sSearchQuery));
-            }
-            return View1Services.getProducts(this._oNorthwindModel, oFilters);
+        setInitCategoriesProductModel: function(oComponent){
+            oComponent.setModel(new JSONModel({
+                valueInputSearch: '',
+                selectedKey: ''
+            }), "CategoriesProductModel")
+        },
+
+		getDataProducts: async function(aFilter) {
+            console.log('filtros',aFilter)
+            return View1Services.getProducts(this._oNorthwindModel, aFilter);
         }
     }    
 });

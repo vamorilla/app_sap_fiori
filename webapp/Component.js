@@ -34,6 +34,7 @@ sap.ui.define([
 
         setInitModel: function () {
             View1Helper.init(this.getModel());
+            View1Helper.setInitCategoriesProductModel(this);
         }  
     });
 });
