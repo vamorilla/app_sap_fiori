@@ -50,7 +50,7 @@ sap.ui.define([
         onSupplierSelected: function (oEvent) {
             const oMultiInput = oEvent.getSource();
             const oSelectedItem = oEvent.getParameter("selectedItem");
-            console.log('oMultiInput',oSelectedItem)
+           
             if (!oSelectedItem) {
                 return;
             }
@@ -59,7 +59,7 @@ sap.ui.define([
             const sText = oSelectedItem.getText();
         
             const oToken = new sap.m.Token({ key: sKey, text: sText });
-        
+            console.log('Token', oToken)
             // Avoid duplicates
             const aExistingTokens = oMultiInput.getTokens();
             const bExists = aExistingTokens.some(token => token.getKey() === sKey);
@@ -77,7 +77,7 @@ sap.ui.define([
             const oMultiInput = this.byId("multiInput");
             const aTokens = oMultiInput.getTokens();
             const aSupplierIDs = aTokens.map(token => token.getKey());
-            
+            console.log('Arr tokens', aTokens)
             if(categoriesModelValues.valueInputSearch){
                 aFilter.push(new Filter("ProductName", FilterOperator.Contains, categoriesModelValues.valueInputSearch))
             }
