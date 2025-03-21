@@ -27,6 +27,12 @@
                                 <Text text="{productsModel>SupplierID}" />
                                 <Text id="detail02" text="{productsModel>ProductName}" />
                                 <Text id="detail03" text="{productsModel>UnitPrice}" />
+                                <ObjectNumber
+                                    state="{= ${productsModel>UnitsInStock} > 10 ? 'Success' : 'Warning'}"
+                                    number="{
+                                        parts:[{path:'productsModel>UnitsInStock'}]
+                                    }"
+                                />
                                 <Text id="detail04" text="{productsModel>UnitsInStock}" />
                             </cells>
                         </ColumnListItem>

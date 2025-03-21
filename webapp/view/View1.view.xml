@@ -32,17 +32,17 @@
                 <ObjectHeader
                     title="{i18n>tableTitle}"
                 />
-                <FlexBox id="idSearchContainer" direction="Row" alignItems="Center" width="100%" class="sapUiLargeMarginBottom">
+                <FlexBox id="idSearchContainer" direction="Row" alignItems="Center" justifyContent="Start" width="100%" class="sapUiLargeMarginBottom">
                     <l:VerticalLayout
 		            width="100%">
-                    <Label text="Nombre"/>
-                    <Input id="idSearchInput"
-                         placeholder="{i18n>placeholderSearchProduct}"
-                        value="{CategoriesProductModel>/valueInputSearch}">
-                        <layoutData>
-                            <FlexItemData growFactor="1" />
-                        </layoutData>
-                    </Input>
+                        <Label text="Nombre"/>
+                        <Input id="idSearchInput"
+                            placeholder="{i18n>placeholderSearchProduct}"
+                            value="{CategoriesProductModel>/valueInputSearch}">
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </Input>
                     </l:VerticalLayout>
                     <l:VerticalLayout
 		                width="100%">
@@ -70,7 +70,22 @@
 			                <c:Item key="{SupplierID}" text="{SupplierID}" />
 		                </MultiComboBox>
                     </l:VerticalLayout>
-                    <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" width="auto" />
+                    <l:VerticalLayout
+		                width="100%">
+                        <Label text="Proveedores (multi input)"/>
+                        <MultiInput width="70%"
+			                showClearIcon="true"
+			                id="multiInput"
+			                suggestionItems="{
+				                path: '/Suppliers',
+				                sorter: { path: 'CompanyName' }
+			                }"
+                            suggestionItemSelected=".onSupplierSelected"
+			                showValueHelp="false">
+			                <c:Item key="{SupplierID}" text="{CompanyName}" />
+		                </MultiInput>
+                    </l:VerticalLayout>    
+                     <Button id="idSearchButton" text="{i18n>buttonSearchText}" press=".onFetchProducts" width="auto" />
                 </FlexBox>
                 <c:Fragment
                     fragmentName='modulo.proyectoprueba.view.fragments.ProductsTable'
