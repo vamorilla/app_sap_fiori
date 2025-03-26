@@ -12,6 +12,7 @@
                     considerAnalyticalParameters="true"
                     useProvidedNavigationProperties="true"
                     persistencyKey="PK_SF_PRODUCT"
+                    entitySet="SEPMRA_C_PD_Product"
                     showClearOnFB="true"
                 />
                 <st:SmartTable
