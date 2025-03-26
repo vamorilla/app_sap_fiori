@@ -5,12 +5,12 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "modulo/proyectoprueba/smartcontrols/model/models"
+        "smartcontrols/model/models"
     ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("modulo.proyectoprueba.smartcontrols.Component", {
+        return UIComponent.extend("smartcontrols.Component", {
             metadata: {
                 manifest: "json"
             },

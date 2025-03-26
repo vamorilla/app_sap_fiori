@@ -1,7 +1,7 @@
 {
   "_version": "1.28.0",
   "sap.app": {
-    "id": "modulo.proyectoprueba.smartcontrols",
+    "id": "smartcontrols",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -83,7 +83,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "modulo.proyectoprueba.smartcontrols.i18n.i18n"
+          "bundleName": "smartcontrols.i18n.i18n"
         }
       },
       "": {
@@ -104,7 +104,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "modulo.proyectoprueba.smartcontrols.view",
+        "viewPath": "smartcontrols.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -129,7 +129,7 @@
       }
     },
     "rootView": {
-      "viewName": "modulo.proyectoprueba.smartcontrols.view.App",
+      "viewName": "smartcontrols.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
@@ -137,6 +137,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "moduloproyectopruebasmartcontrols"
+    "service": "smartcontrols"
   }
 }

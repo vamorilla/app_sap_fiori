@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "modulo.proyectoprueba.smartcontrols.view.",
+		viewNamespace: "smartcontrols.view.",
 		autoWait: true
 	});
 });

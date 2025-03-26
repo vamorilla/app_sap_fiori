@@ -6,7 +6,7 @@ sap.ui.define([
 function (Controller, Filter, FilterOperator) {
     "use strict";
 
-    return Controller.extend("modulo.proyectoprueba.smartcontrols.controller.App", {
+    return Controller.extend("smartcontrols.controller.App", {
         onInit: function () {
             
         },

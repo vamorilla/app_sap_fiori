@@ -1,5 +1,5 @@
 {
-  "xsappname": "moduloproyectopruebasmartcontrols",
+  "xsappname": "smartcontrols",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [],

@@ -10,7 +10,7 @@
 |**Service URL**<br>https://sapes5.sapdevcenter.com/sap/opu/odata/sap/SEPMRA_PROD_MAN|
 |**Module Name**<br>smartcontrols|
 |**Application Title**<br>App SmartControls|
-|**Namespace**<br>modulo.proyectoprueba|
+|**Namespace**<br>|
 |**UI5 Theme**<br>sap_fiori_3_dark|
 |**UI5 Version**<br>1.84.14|
 |**Enable Code Assist Libraries**<br>False|

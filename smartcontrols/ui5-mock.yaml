@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: modulo.proyectoprueba.smartcontrols
+  name: smartcontrols
 type: application
 server:
   customMiddleware:
@@ -28,7 +28,7 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: modulo.proyectoprueba.smartcontrols
+        component: smartcontrols
         ui5Theme: sap_fiori_3_dark
     - name: sap-fe-mockserver
       beforeMiddleware: csp

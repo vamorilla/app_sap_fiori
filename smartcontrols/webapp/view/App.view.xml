@@ -1,4 +1,4 @@
-<mvc:View controllerName="modulo.proyectoprueba.smartcontrols.controller.App"
+<mvc:View controllerName="smartcontrols.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:sfb="sap.ui.comp.smartfilterbar"
