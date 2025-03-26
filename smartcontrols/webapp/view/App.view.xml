@@ -3,31 +3,33 @@
     xmlns="sap.m"
     xmlns:sfb="sap.ui.comp.smartfilterbar"
     xmlns:st="sap.ui.comp.smarttable">
-    <Page id="page" title="{i18n>title}">
-        <content >
-            <sfb:SmartFilterBar
-                id="SF_FILTER"
-                liveMode="false"
-                considerAnalyticalParameters="true"
-                useProvidedNavigationProperties="true"
-                persistencyKey="PK_SF_PRODUCT"
-                showClearOnFB="true"
-            />
-            <st:SmartTable
-                id="ST_PRODUCT"
-                smartFilterId="SF_FILTER"
-                fitContainer="true"
-                entitySet="SEPMRA_C_PD_Product"
-                useVariantManagement="true"
-                showTablePersonalisation="true"
-                enableAutoBinding="true"
-                persistencyKey="PK_ST_PRODUCT"
-                tableType="ResponsiveTable"
-                width="100%"
-                height="80%"
-                header="Productos"
-                beforeRebindTable="onBeforeRebind"
-            />
-        </content>
-    </Page>
+    <App id="app">
+        <Page id="page" title="{i18n>title}">
+            <content >
+                <sfb:SmartFilterBar
+                    id="SF_FILTER"
+                    liveMode="false"
+                    considerAnalyticalParameters="true"
+                    useProvidedNavigationProperties="true"
+                    persistencyKey="PK_SF_PRODUCT"
+                    showClearOnFB="true"
+                />
+                <st:SmartTable
+                    id="ST_PRODUCT"
+                    smartFilterId="SF_FILTER"
+                    fitContainer="true"
+                    entitySet="SEPMRA_C_PD_Product"
+                    useVariantManagement="true"
+                    showTablePersonalisation="true"
+                    enableAutoBinding="true"
+                    persistencyKey="PK_ST_PRODUCT"
+                    tableType="ResponsiveTable"
+                    width="100%"
+                    height="80%"
+                    header="Productos"
+                    beforeRebindTable="onBeforeRebind"
+                />
+            </content>
+        </Page>
+    </App>
 </mvc:View>
